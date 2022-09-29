@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Main {
+
     public static void main(String[] args) {
         float dailyWage;
         int wagePerHour = 20, fullDayHour = 0;
@@ -10,10 +11,17 @@ public class Main {
         Random random = new Random();
         boolean attendance = random.nextBoolean();
         System.out.println(attendance);
-        if (attendance) {
-            System.out.println("Employee is present.");
-            fullDayHour = 8;
-        }
+
+        boolean isPartTime = random.nextBoolean();
+        if (attendance)
+            if (isPartTime) {
+                System.out.println("Part time employee is present.");
+                fullDayHour = 4;
+            }
+            else {
+                System.out.println("Full time employee is present.");
+                fullDayHour = 8;
+            }
         else
             System.out.println("Employee is absent.");
 
